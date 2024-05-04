@@ -46,19 +46,26 @@
   <!-- Add elements to display total fare, allowance, and misc expenses -->
   <div>
     <label>Total Fare:</label>
-    <input type="hidden" id="totalFareInput" name="totalFare">
     <span id="totalFare">0</span>
   </div>
   <div>
     <label>Total Allowance:</label>
-    <input type="hidden" id="totalAllowanceInput" name="totalAllowance">
     <span id="totalAllowance">0</span>
   </div>
   <div>
     <label>Total Misc. Expense:</label>
-    <input type="hidden" id="totalMiscExpenseInput" name="totalMiscExpense">
     <span id="totalMiscExpense">0</span>
   </div>
+  <div>
+    <label>Total Postage/Cable/Telephone:</label>
+    <span id="totalPostageCableTelephone">0</span>
+  </div>
+
+  <!-- Hidden input fields to store totals -->
+  <input type="hidden" id="totalFareInput" name="totalFare">
+  <input type="hidden" id="totalAllowanceInput" name="totalAllowance">
+  <input type="hidden" id="totalMiscExpenseInput" name="totalMiscExpense">
+  <input type="hidden" id="totalPostageCableTelephoneInput" name="totalPostageCableTelephone">
 
   <button type="submit" id="submitExpense">Submit</button>
 </form>
