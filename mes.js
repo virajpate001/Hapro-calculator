@@ -8,30 +8,35 @@ document.addEventListener('DOMContentLoaded', function() {
     let totalFare = 0;
     let totalAllowance = 0;
     let totalMiscExpense = 0;
+    let totalPostageCableTelephone = 0;
 
     expenseEntries.querySelectorAll('.expense-entry').forEach(entry => {
       const fare = parseFloat(entry.querySelector('[name="fare"]').value) || 0;
       const allowance = parseFloat(entry.querySelector('[name="allowance"]').value) || 0;
       const miscExpense = parseFloat(entry.querySelector('[name="miscExpense"]').value) || 0;
+      const postageCableTelephone = parseFloat(entry.querySelector('[name="postageCableTelephone"]').value) || 0;
 
       totalFare += fare;
       totalAllowance += allowance;
       totalMiscExpense += miscExpense;
+      totalPostageCableTelephone += postageCableTelephone;
     });
 
     document.getElementById('totalFare').textContent = totalFare.toFixed(2);
     document.getElementById('totalAllowance').textContent = totalAllowance.toFixed(2);
     document.getElementById('totalMiscExpense').textContent = totalMiscExpense.toFixed(2);
+    document.getElementById('totalPostageCableTelephone').textContent = totalPostageCableTelephone.toFixed(2);
 
     // Update hidden input fields with totals
     document.getElementById('totalFareInput').value = totalFare.toFixed(2);
     document.getElementById('totalAllowanceInput').value = totalAllowance.toFixed(2);
     document.getElementById('totalMiscExpenseInput').value = totalMiscExpense.toFixed(2);
+    document.getElementById('totalPostageCableTelephoneInput').value = totalPostageCableTelephone.toFixed(2);
   }
 
   addExpenseEntryBtn.addEventListener('click', function() {
     const entryTemplate = `
-      <div class="expense-entry">
+       <div class="expense-entry">
         <div>
           <label>Date:</label>
           <input type="date" name="date" required>
@@ -68,6 +73,10 @@ document.addEventListener('DOMContentLoaded', function() {
           <label>Misc. Expense:</label>
           <input type="text" name="miscExpense">
         </div>
+         <div>
+          <label>Postage/Cable/Telephone:</label>
+          <input type="text" name="postageCableTelephone">
+        </div>
       </div>
     `;
 
@@ -93,6 +102,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const totalFare = parseFloat(document.getElementById('totalFareInput').value) || 0;
     const totalAllowance = parseFloat(document.getElementById('totalAllowanceInput').value) || 0;
     const totalMiscExpense = parseFloat(document.getElementById('totalMiscExpenseInput').value) || 0;
+    const totalPostageCableTelephone = parseFloat(document.getElementById('totalPostageCableTelephoneInput').value) || 0;
 
     const data = {
       name: formData.get('name'),
@@ -103,31 +113,16 @@ document.addEventListener('DOMContentLoaded', function() {
       totalFare: totalFare.toFixed(2),
       totalAllowance: totalAllowance.toFixed(2),
       totalMiscExpense: totalMiscExpense.toFixed(2),
+      totalPostageCableTelephone: totalPostageCableTelephone.toFixed(2),
       expenses: entries
     };
 
     console.log('Form data:', data);
 
     // Here you can send 'data' to your server using AJAX or fetch
-    // For example:
-    // fetch('your-server-endpoint', {
-    //   method: 'POST',
-    //   body: JSON.stringify(data),
-    //   headers: {
-    //     'Content-Type': 'application/json'
-    //   }
-    // }).then(response => {
-    //   if (response.ok) {
-    //     console.log('Data submitted successfully');
-    //   } else {
-    //     console.error('Failed to submit data');
-    //   }
-    // }).catch(error => {
-    //   console.error('Error:', error);
-    // });
 
-    // You can also reset the form after submission if needed
-    // expenseForm.reset();
+    // Reset form (optional)
+     expenseForm.reset();
   });
 
   // Update totals when input fields change
