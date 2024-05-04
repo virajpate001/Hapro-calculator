@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+     <section>
+<form id="expenseForm">
+  <fieldset>
+    <legend>Expense Report</legend>
+    <div>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+    </div>
+    <div>
+      <label for="hq">HQ:</label>
+      <input type="text" id="hq" name="hq">
+    </div>
+    <div>
+      <label for="designation">Designation:</label>
+      <input type="text" id="designation" name="designation" required>
+    </div>
+    <div>
+      <label for="submittedOn">Submitted On:</label>
+      <input type="date" id="submittedOn" name="submittedOn" required>
+    </div>
+    <div>
+      <label for="forTheMonth">For the Month:</label>
+      <select id="forTheMonth" name="forTheMonth" required>
+        <option value="January">January</option>
+        <!-- Add other months as needed -->
+      </select>
+    </div>
+  </fieldset>
+
+  <fieldset id="expenseEntries">
+    <legend>Expense Entries</legend>
+    <!-- JavaScript will dynamically add entries here -->
+  </fieldset>
+
+  <button type="button" id="addExpenseEntry">Add Expense Entry</button>
+
+  <!-- Add elements to display total fare, allowance, and misc expenses -->
+  <div>
+    <label>Total Fare:</label>
+    <input type="hidden" id="totalFareInput" name="totalFare">
+    <span id="totalFare">0</span>
+  </div>
+  <div>
+    <label>Total Allowance:</label>
+    <input type="hidden" id="totalAllowanceInput" name="totalAllowance">
+    <span id="totalAllowance">0</span>
+  </div>
+  <div>
+    <label>Total Misc. Expense:</label>
+    <input type="hidden" id="totalMiscExpenseInput" name="totalMiscExpense">
+    <span id="totalMiscExpense">0</span>
+  </div>
+
+  <button type="submit" id="submitExpense">Submit</button>
+</form>
+
+     </section>
+
+   
+
+    <script src="main.js"></script>
+</body>
+</html>
